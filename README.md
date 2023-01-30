@@ -79,10 +79,41 @@ MongoDB.Driver
 
 Swashbuckle.AspNetCore
 
+Microsoft.Extensions.Caching.StackExchangeRedis
+
 
 Docker compose:
 
 docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
 
 docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
+
+
+Redis:
+
+docker pull redis
+
+docker run -d -p 6379:6379 --name aspnetrun-redis redis
+
+docker exec -it aspnetrun-redis /bin/bash
+
+redis-cli
+
+ping
+
+set key value
+
+get key
+
+
+Basket API:
+
+GET api/v1/Basket
+
+POST api/v1/Basket
+
+DELETE api/v1/Basket/{userName}
+
+POST api/v1/Checkout
+
 
