@@ -7,9 +7,13 @@ ls
 
 docker ps
 
+docker ps -aq
+
 docker pull mongo
 
 docker images
+
+docker rmi $(docker images -q)
 
 docker run -d -p 27017:27017 --name shopping-mongo mongo
 
@@ -18,6 +22,10 @@ docker logs -f shopping-mongo
 docker stop xxxx
 
 docker rm xxxx
+
+docker stop $(docker ps -aq)
+
+docker system prune
 
 
 Mongo:
@@ -41,6 +49,13 @@ db.Products.find({}).pretty()
 db.Products.remove({})
 
 show collections
+
+
+MongoClient:
+
+docker run -d -p 3000:3000 mongoclient/mongoclient
+
+http://localhost:3000/
 
 
 Catalog.API:
