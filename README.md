@@ -2,16 +2,26 @@
 AspnetMicroservices
 
 Docker:
+
+ls
+
 docker ps
 
 docker pull mongo
+
+docker images
 
 docker run -d -p 27017:27017 --name shopping-mongo mongo
 
 docker logs -f shopping-mongo
 
+docker stop xxxx
+
+docker rm xxxx
+
 
 Mongo:
+
 docker exec -it shopping-mongo /bin/bash
 
 ls
@@ -33,7 +43,7 @@ db.Products.remove({})
 show collections
 
 
-Catalog.API
+Catalog.API:
 
 GET api/v1/Catalog
 
@@ -49,8 +59,15 @@ DELETE api/v1/Catalog/{id}
 
 
 Packages:
+
 MongoDB.Driver
 
 Swashbuckle.AspNetCore
 
+
+Docker compose:
+
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
 
