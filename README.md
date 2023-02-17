@@ -81,6 +81,10 @@ Swashbuckle.AspNetCore
 
 Microsoft.Extensions.Caching.StackExchangeRedis
 
+Npgsql
+
+Dapper
+
 
 Docker compose:
 
@@ -117,3 +121,10 @@ DELETE api/v1/Basket/{userName}
 POST api/v1/Checkout
 
 
+DiscountDB:
+CREATE TABLE Coupon(
+	ID SERIAL PRIMARY KEY NOT NULL,
+	ProductName VARCHAR(24) NOT NULL,
+	Description TEXT,
+	Amount		INT
+);
